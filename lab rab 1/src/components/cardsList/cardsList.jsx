@@ -1,5 +1,4 @@
 import { Component } from "react";
-import cardsData from "../../constants/cardsData";
 import Card from "../card/card";
 
 class CardsList extends Component {
@@ -7,7 +6,7 @@ class CardsList extends Component {
     return(
       <section>
         <h2 style={{textAlign: 'center'}}>Cards List</h2>
-        {cardsData.map(card => (
+        {this.props.cards.map(card => (
           <Card key={card.id} title={card.title} content={card.content} />
         ))}
       </section>
