@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Button from "../button/button";
 
-class InfoCard extends Component {
+class Card extends Component {
   render() {
     return (
       <div style={{ backgroundColor: '#fff', border: '1px solid #ddd', padding: '15px', margin: '20px auto', width: '80%'}}>
@@ -13,4 +13,4 @@ class InfoCard extends Component {
   }
 }
 
-export default InfoCard;
+export default Card;

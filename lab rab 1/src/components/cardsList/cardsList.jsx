@@ -1,14 +1,14 @@
 import { Component } from "react";
 import cardsData from "../../constants/cardsData";
-import InfoCard from "../infoCard/infoCard";
+import Card from "../card/card";
 
 class CardsList extends Component {
   render() {
     return(
       <section>
-        <h2>Info Cards List</h2>
+        <h2 style={{textAlign: 'center'}}>Cards List</h2>
         {cardsData.map(card => (
-          <InfoCard key={card.id} title={card.title} content={card.content} />
+          <Card key={card.id} title={card.title} content={card.content} />
         ))}
       </section>
     )
