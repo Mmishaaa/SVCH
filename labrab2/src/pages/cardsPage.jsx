@@ -1,5 +1,5 @@
-  import { useState, useEffect } from "react";
-  import data from "../../public/data/data.json"
+import { useState, useEffect } from "react";
+import data from "../data/data.json"
 import CardsList from "../components/cardsList";
 import Button from "../components/button";
 
@@ -19,7 +19,6 @@ import Button from "../components/button";
         id: cards.length + 1,
         name: `Item ${cards.length + 1}`,
         description: `Description for Item ${cards.length + 1}`,
-        url: '/images/image' + (cards.length + 1) + '.jpg',
       };
       setCards((prevCards) => [...prevCards, newCard]);
     };
