@@ -1,10 +1,11 @@
-import ProfilePage from "./pages/profilePage"
+import { BrowserRouter } from "react-router-dom/dist"
+import AppRouter from "./routers/appRouter"
 
 function App() {
   return (
-    <>
-      <ProfilePage></ProfilePage>
-    </>
+    <BrowserRouter>
+      <AppRouter/>
+    </BrowserRouter>
   )
 }
 
