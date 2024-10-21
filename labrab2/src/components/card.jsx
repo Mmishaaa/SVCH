@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import { Button } from "@mui/material"; // Импортируем кнопку из MUI
 
 function Card({ item, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -68,36 +69,55 @@ function Card({ item, onDelete }) {
             <div style={{ marginTop: "20px" }}>
               {!isEditing ? (
                 <>
-                  <button
+                  <Button
+                    variant="contained"
+                    color="primary"
                     onClick={() => setIsEditing(true)}
-                    style={editButtonStyle}
+                    style={muiButtonStyle}
                   >
                     Edit
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="error"
                     onClick={() => {
                       onDelete(item.id);
                       close();
                     }}
-                    style={buttonStyle}
+                    style={muiButtonStyle}
                   >
                     Delete
-                  </button>
+                  </Button>
                 </>
               ) : (
                 <>
-                  <button onClick={handleSave} style={saveButtonStyle}>
+                  <Button
+                    variant="contained"
+                    color="success"
+                    onClick={handleSave}
+                    style={muiButtonStyle}
+                  >
                     Save
-                  </button>
-                  <button onClick={() => setIsEditing(false)} style={cancelButtonStyle}>
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => setIsEditing(false)}
+                    style={muiButtonStyle}
+                  >
                     Cancel
-                  </button>
+                  </Button>
                 </>
               )}
             </div>
-            <button onClick={close} style={closeButtonStyle}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={close}
+              style={{ marginTop: "10px" }}
+            >
               Close
-            </button>
+            </Button>
           </div>
         )}
       </Popup>
@@ -156,51 +176,7 @@ const textareaStyle = {
   border: "1px solid #ccc",
 };
 
-const buttonStyle = {
-  backgroundColor: "#ff4c4c",
-  color: "#fff",
-  border: "none",
-  borderRadius: "5px",
-  padding: "5px 10px",
-  cursor: "pointer",
+const muiButtonStyle = {
   marginRight: "10px",
-};
-
-const editButtonStyle = {
-  backgroundColor: "#007bff",
-  color: "#fff",
-  border: "none",
-  borderRadius: "5px",
-  padding: "5px 10px",
-  cursor: "pointer",
-  marginRight: "10px",
-};
-
-const saveButtonStyle = {
-  backgroundColor: "#28a745",
-  color: "#fff",
-  border: "none",
-  borderRadius: "5px",
-  padding: "5px 10px",
-  cursor: "pointer",
-  marginRight: "10px",
-};
-
-const cancelButtonStyle = {
-  backgroundColor: "#6c757d",
-  color: "#fff",
-  border: "none",
-  borderRadius: "5px",
-  padding: "5px 10px",
-  cursor: "pointer",
-};
-
-const closeButtonStyle = {
-  backgroundColor: "#007bff",
-  color: "#fff",
-  border: "none",
-  borderRadius: "5px",
-  padding: "5px 10px",
-  cursor: "pointer",
   marginTop: "10px",
 };

@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "./button";
 import InputField from "./inputField"
+import { Button } from "@mui/material";
 
 function ProfileForm({ profile, handleChange, handleSubmit }) {
   return (
@@ -75,7 +75,7 @@ function ProfileForm({ profile, handleChange, handleSubmit }) {
         value={profile.relationshipStatus}
         onChange={handleChange}
       />
-      <Button text={"Save Changes"} type={"submit"}></Button>
+      <Button variant="contained" type={"submit"}>Save Changes</Button>
     </form>
   )
 }
