@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import data from "../data/data.json";
 import CardsList from "../components/cardsList";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Box } from '@mui/material';
 
 const CardsPage = () => {
@@ -26,7 +26,12 @@ const CardsPage = () => {
 
   return (
     <Box sx={{ padding: '20px' }}>
-      <h1>Card Gallery</h1>
+      <Typography
+        variant="h1"
+        sx={{ fontSize: '32px', marginBottom: '20px' }}
+      >
+        Card Gallery
+      </Typography>
       <Button
         variant="contained"
         color="primary"

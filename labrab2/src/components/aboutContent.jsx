@@ -1,64 +1,82 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const AboutPage = () => {
   return (
     <Box sx={pageStyle}>
       <main style={mainStyle}>
         <section style={sectionStyle}>
-          <h2 style={headingStyle}>About Our Store</h2>
+          <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
+            About Our Store
+          </Typography>
           <Box sx={contentStyle}>
-            <p>
+            <Typography>
               Welcome to <strong>Our Store</strong>, where quality meets affordability! Founded in 2010, we have 
               grown to be a trusted name in the retail industry, offering a diverse range of products, from stylish 
               clothing to cutting-edge electronics. Our mission is to provide you with an enjoyable shopping experience 
               that keeps you coming back for more.
-            </p>
+            </Typography>
           </Box>
         </section>
 
         <section style={sectionStyle}>
-          <h2 style={headingStyle}>Our Mission</h2>
+          <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
+            Our Mission
+          </Typography>
           <Box sx={contentStyle}>
-            <p>
+            <Typography>
               Our mission is simple: to bring you the best products at the best prices, coupled with 
               exceptional customer service. We continuously strive to enhance our offerings, ensuring that you find 
               exactly what you're looking for every time you visit us.
-            </p>
+            </Typography>
           </Box>
         </section>
 
         <section style={sectionStyle}>
-          <h2 style={headingStyle}>Meet Our Team</h2>
+          <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
+            Meet Our Team
+          </Typography>
           <Box sx={contentStyle}>
-            <p>
+            <Typography>
               Our dedicated team is at the heart of everything we do. From customer service to product selection, 
               each member plays a vital role in ensuring that you have a fantastic experience. 
               <strong> We’re here to help!</strong>
-            </p>
+            </Typography>
           </Box>
         </section>
 
         <section style={sectionStyle}>
-          <h2 style={headingStyle}>What Our Customers Say</h2>    
+          <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
+            What Our Customers Say
+          </Typography>    
           <blockquote style={blockquoteStyle}>
-            "Shopping at Our Store has been a fantastic experience! The variety of products is incredible, and I always find what I need."
+            <Typography>
+              "Shopping at Our Store has been a fantastic experience! The variety of products is incredible, and I always find what I need."
+            </Typography>
             <cite>— Sarah J.</cite>
           </blockquote>          
           <blockquote style={blockquoteStyle}>
-            "I ordered a laptop from here, and it arrived in perfect condition. Excellent service and fast shipping!"
+            <Typography>
+              "I ordered a laptop from here, and it arrived in perfect condition. Excellent service and fast shipping!"
+            </Typography>
             <cite>— John D.</cite>
           </blockquote>          
           <blockquote style={blockquoteStyle}>
-            "The customer support team is amazing! They helped me with my order, and I couldn't be happier with my purchase."
+            <Typography>
+              "The customer support team is amazing! They helped me with my order, and I couldn't be happier with my purchase."
+            </Typography>
             <cite>— Emily R.</cite>
           </blockquote>
           <blockquote style={blockquoteStyle}>
-            "Our Store always has the best deals! I've saved so much money shopping here, and the quality is top-notch."
+            <Typography>
+              "Our Store always has the best deals! I've saved so much money shopping here, and the quality is top-notch."
+            </Typography>
             <cite>— Michael T.</cite>
           </blockquote>
           <blockquote style={blockquoteStyle}>
-            "I love the selection of clothing! Every time I visit, I leave with something stylish and affordable."
+            <Typography>
+              "I love the selection of clothing! Every time I visit, I leave with something stylish and affordable."
+            </Typography>
             <cite>— Jessica L.</cite>
           </blockquote>
         </section>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 function ProfileDetails({ profile }) {
   const styles = {
@@ -16,7 +16,7 @@ function ProfileDetails({ profile }) {
       display: 'grid',
       gap: '10px',
       textAlign: 'left',
-    }, 
+    },
     title: {
       textAlign: 'center',
       color: '#007bff',
@@ -25,18 +25,40 @@ function ProfileDetails({ profile }) {
 
   return (
     <Box sx={styles.container}>
-      <h1 style={styles.title}>Profile Page</h1>
+      <Typography variant="h1" sx={{ fontSize: '32px', ...styles.title }}>
+        Profile Page
+      </Typography>
       <Box sx={styles.profileInfo}>
-        <p><strong>First Name:</strong> {profile.firstName}</p>
-        <p><strong>Last Name:</strong> {profile.lastName}</p>
-        <p><strong>Nickname:</strong> {profile.nickname}</p>
-        <p><strong>Description:</strong> {profile.description}</p>
-        <p><strong>City:</strong> {profile.city}</p>
-        <p><strong>Age:</strong> {profile.age}</p>
-        <p><strong>Favourite meal:</strong> {profile.meal}</p>
-        <p><strong>Occupation:</strong> {profile.occupation}</p>
-        <p><strong>Hobbies:</strong> {profile.hobbies}</p>
-        <p><strong>Relationship Status:</strong> {profile.relationshipStatus}</p>
+        <Typography>
+          <strong>First Name:</strong> {profile.firstName}
+        </Typography>
+        <Typography>
+          <strong>Last Name:</strong> {profile.lastName}
+        </Typography>
+        <Typography>
+          <strong>Nickname:</strong> {profile.nickname}
+        </Typography>
+        <Typography>
+          <strong>Description:</strong> {profile.description}
+        </Typography>
+        <Typography>
+          <strong>City:</strong> {profile.city}
+        </Typography>
+        <Typography>
+          <strong>Age:</strong> {profile.age}
+        </Typography>
+        <Typography>
+          <strong>Favourite meal:</strong> {profile.meal}
+        </Typography>
+        <Typography>
+          <strong>Occupation:</strong> {profile.occupation}
+        </Typography>
+        <Typography>
+          <strong>Hobbies:</strong> {profile.hobbies}
+        </Typography>
+        <Typography>
+          <strong>Relationship Status:</strong> {profile.relationshipStatus}
+        </Typography>
       </Box>
     </Box>
   );
