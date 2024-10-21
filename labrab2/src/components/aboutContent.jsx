@@ -1,39 +1,42 @@
+import React from "react";
+import { Box } from "@mui/material";
+
 const AboutPage = () => {
   return (
-    <div style={pageStyle}>
+    <Box sx={pageStyle}>
       <main style={mainStyle}>
         <section style={sectionStyle}>
           <h2 style={headingStyle}>About Our Store</h2>
-          <div style={contentStyle}>
+          <Box sx={contentStyle}>
             <p>
               Welcome to <strong>Our Store</strong>, where quality meets affordability! Founded in 2010, we have 
               grown to be a trusted name in the retail industry, offering a diverse range of products, from stylish 
               clothing to cutting-edge electronics. Our mission is to provide you with an enjoyable shopping experience 
               that keeps you coming back for more.
             </p>
-          </div>
+          </Box>
         </section>
 
         <section style={sectionStyle}>
           <h2 style={headingStyle}>Our Mission</h2>
-          <div style={contentStyle}>
+          <Box sx={contentStyle}>
             <p>
               Our mission is simple: to bring you the best products at the best prices, coupled with 
               exceptional customer service. We continuously strive to enhance our offerings, ensuring that you find 
               exactly what you're looking for every time you visit us.
             </p>
-          </div>
+          </Box>
         </section>
 
         <section style={sectionStyle}>
           <h2 style={headingStyle}>Meet Our Team</h2>
-          <div style={contentStyle}>
+          <Box sx={contentStyle}>
             <p>
               Our dedicated team is at the heart of everything we do. From customer service to product selection, 
               each member plays a vital role in ensuring that you have a fantastic experience. 
               <strong> We’re here to help!</strong>
             </p>
-          </div>
+          </Box>
         </section>
 
         <section style={sectionStyle}>
@@ -58,10 +61,9 @@ const AboutPage = () => {
             "I love the selection of clothing! Every time I visit, I leave with something stylish and affordable."
             <cite>— Jessica L.</cite>
           </blockquote>
-      </section>
-
+        </section>
       </main>
-    </div>
+    </Box>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileDetails from "./profileDetails";
-import { Button } from "@mui/material";
+import { Button, Box } from "@mui/material";
 
 function ProfileView({ profile, onClick }) {
   const containerStyle = {
@@ -21,12 +21,12 @@ function ProfileView({ profile, onClick }) {
   };
 
   return (
-    <div style={containerStyle}>
+    <Box sx={containerStyle}>
       <ProfileDetails profile={profile} />
       <Button variant="contained" style={buttonStyle} onClick={onClick}>
         EDIT
       </Button>
-    </div>
+    </Box>
   );
 }
 

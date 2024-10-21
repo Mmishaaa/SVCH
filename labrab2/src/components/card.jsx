@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import { Button } from "@mui/material"; // Импортируем кнопку из MUI
+import { Button, Box } from "@mui/material";
 
 function Card({ item, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -23,10 +23,10 @@ function Card({ item, onDelete }) {
     <>
       <Popup
         trigger={
-          <div style={cardStyle}>
+          <Box sx={cardStyle}>
             <h3>{editedItem.name}</h3>
             <p>{editedItem.description}</p>
-          </div>
+          </Box>
         }
         modal
         nested
@@ -35,7 +35,7 @@ function Card({ item, onDelete }) {
         closeOnDocumentClick={true}
       >
         {(close) => (
-          <div style={popupStyle}>
+          <Box sx={popupStyle}>
             {!isEditing ? (
               <>
                 <h2>{editedItem.name}</h2>
@@ -44,7 +44,7 @@ function Card({ item, onDelete }) {
                 <p>{editedItem.fullDescription}</p>
               </>
             ) : (
-              <div>
+              <Box>
                 <input
                   type="text"
                   name="name"
@@ -64,16 +64,16 @@ function Card({ item, onDelete }) {
                   onChange={handleEditChange}
                   style={textareaStyle}
                 />
-              </div>
+              </Box>
             )}
-            <div style={{ marginTop: "20px" }}>
+            <Box sx={{ marginTop: "20px" }}>
               {!isEditing ? (
                 <>
                   <Button
                     variant="contained"
                     color="primary"
                     onClick={() => setIsEditing(true)}
-                    style={muiButtonStyle}
+                    sx={muiButtonStyle}
                   >
                     Edit
                   </Button>
@@ -84,7 +84,7 @@ function Card({ item, onDelete }) {
                       onDelete(item.id);
                       close();
                     }}
-                    style={muiButtonStyle}
+                    sx={muiButtonStyle}
                   >
                     Delete
                   </Button>
@@ -95,7 +95,7 @@ function Card({ item, onDelete }) {
                     variant="contained"
                     color="success"
                     onClick={handleSave}
-                    style={muiButtonStyle}
+                    sx={muiButtonStyle}
                   >
                     Save
                   </Button>
@@ -103,22 +103,22 @@ function Card({ item, onDelete }) {
                     variant="contained"
                     color="secondary"
                     onClick={() => setIsEditing(false)}
-                    style={muiButtonStyle}
+                    sx={muiButtonStyle}
                   >
                     Cancel
                   </Button>
                 </>
               )}
-            </div>
+            </Box>
             <Button
               variant="contained"
               color="primary"
               onClick={close}
-              style={{ marginTop: "10px" }}
+              sx={{ marginTop: "10px" }}
             >
               Close
             </Button>
-          </div>
+          </Box>
         )}
       </Popup>
     </>

@@ -1,6 +1,7 @@
 import React from "react";
+import { Box } from "@mui/material";
 
-function ProfileDetails({profile}) {
+function ProfileDetails({ profile }) {
   const styles = {
     container: {
       padding: '20px',
@@ -23,9 +24,9 @@ function ProfileDetails({profile}) {
   };
 
   return (
-    <div  style={styles.container}>
+    <Box sx={styles.container}>
       <h1 style={styles.title}>Profile Page</h1>
-      <div style={styles.profileInfo}>
+      <Box sx={styles.profileInfo}>
         <p><strong>First Name:</strong> {profile.firstName}</p>
         <p><strong>Last Name:</strong> {profile.lastName}</p>
         <p><strong>Nickname:</strong> {profile.nickname}</p>
@@ -36,8 +37,8 @@ function ProfileDetails({profile}) {
         <p><strong>Occupation:</strong> {profile.occupation}</p>
         <p><strong>Hobbies:</strong> {profile.hobbies}</p>
         <p><strong>Relationship Status:</strong> {profile.relationshipStatus}</p>
-      </div>
-  </div>
+      </Box>
+    </Box>
   );
 }
 
