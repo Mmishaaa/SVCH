@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import data from "../data/data.json";
 import CardsList from "../components/cardsList";
-import Button from "../components/button";
+import { Button } from "@mui/material";
 import { Box } from '@mui/material';
 
 const CardsPage = () => {
@@ -26,12 +26,15 @@ const CardsPage = () => {
 
   return (
     <Box sx={{ padding: '20px' }}>
-      <h1 variant="h1">Card Gallery</h1>
+      <h1>Card Gallery</h1>
       <Button
-        text={"Add Card"}
+        variant="contained"
+        color="primary"
         onClick={handleAddCard}
-        style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
-      />
+        sx={{ marginBottom: '20px', padding: '10px' }}
+      >
+        Add Card
+      </Button>
       <CardsList cards={cards} onDelete={handleDelete} />
     </Box>
   );
