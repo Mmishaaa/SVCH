@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Container, Paper, Grid } from "@mui/material";
 
 const AboutPage = () => {
   return (
     <Box sx={pageStyle}>
-      <main style={mainStyle}>
-        <section style={sectionStyle}>
+      <Container component="main" sx={mainStyle}>
+        <Paper elevation={3} sx={sectionStyle}>
           <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
             About Our Store
           </Typography>
@@ -17,9 +17,9 @@ const AboutPage = () => {
               that keeps you coming back for more.
             </Typography>
           </Box>
-        </section>
+        </Paper>
 
-        <section style={sectionStyle}>
+        <Paper elevation={3} sx={sectionStyle}>
           <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
             Our Mission
           </Typography>
@@ -30,9 +30,9 @@ const AboutPage = () => {
               exactly what you're looking for every time you visit us.
             </Typography>
           </Box>
-        </section>
+        </Paper>
 
-        <section style={sectionStyle}>
+        <Paper elevation={3} sx={sectionStyle}>
           <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
             Meet Our Team
           </Typography>
@@ -43,44 +43,24 @@ const AboutPage = () => {
               <strong> We’re here to help!</strong>
             </Typography>
           </Box>
-        </section>
+        </Paper>
 
-        <section style={sectionStyle}>
+        <Paper elevation={3} sx={sectionStyle}>
           <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
             What Our Customers Say
           </Typography>    
-          <blockquote style={blockquoteStyle}>
-            <Typography>
-              "Shopping at Our Store has been a fantastic experience! The variety of products is incredible, and I always find what I need."
-            </Typography>
-            <cite>— Sarah J.</cite>
-          </blockquote>          
-          <blockquote style={blockquoteStyle}>
-            <Typography>
-              "I ordered a laptop from here, and it arrived in perfect condition. Excellent service and fast shipping!"
-            </Typography>
-            <cite>— John D.</cite>
-          </blockquote>          
-          <blockquote style={blockquoteStyle}>
-            <Typography>
-              "The customer support team is amazing! They helped me with my order, and I couldn't be happier with my purchase."
-            </Typography>
-            <cite>— Emily R.</cite>
-          </blockquote>
-          <blockquote style={blockquoteStyle}>
-            <Typography>
-              "Our Store always has the best deals! I've saved so much money shopping here, and the quality is top-notch."
-            </Typography>
-            <cite>— Michael T.</cite>
-          </blockquote>
-          <blockquote style={blockquoteStyle}>
-            <Typography>
-              "I love the selection of clothing! Every time I visit, I leave with something stylish and affordable."
-            </Typography>
-            <cite>— Jessica L.</cite>
-          </blockquote>
-        </section>
-      </main>
+          <Box sx={contentStyle}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Typography component="blockquote" sx={blockquoteStyle}>
+                  "Shopping at Our Store has been a fantastic experience! The variety of products is incredible, and I always find what I need."
+                  <cite>— Sarah J.</cite>
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Paper>
+      </Container>
     </Box>
   );
 };
@@ -97,15 +77,15 @@ const pageStyle = {
 
 const mainStyle = {
   flex: 1,
-  padding: "20px",
+  py: 3,
 };
 
 const sectionStyle = {
-  margin: "20px 0",
-  padding: "20px",
+  marginBottom: 2,
+  padding: 2,
   backgroundColor: "#ffffff",
   borderRadius: "10px",
-  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+  boxShadow: 3,
 };
 
 const headingStyle = {
@@ -118,7 +98,7 @@ const headingStyle = {
 const contentStyle = {
   display: "flex",
   alignItems: "center",
-  gap: "20px",
+  gap: 2,
 };
 
 const blockquoteStyle = {
