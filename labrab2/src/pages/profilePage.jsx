@@ -10,6 +10,7 @@ const ProfilePage = () => {
     nickname: "",
     description: "",
     city: "",
+    age: undefined,
     meal: "",
     occupation: "",
     hobbies: "",
