@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import { v4 as uuidv4 } from 'uuid';
+import { Constants } from '../constants.js';
 
 const createAsync = async(user) => {
   try {
@@ -7,8 +8,8 @@ const createAsync = async(user) => {
       id: uuidv4(),
       ... user
     }
-    await fs.appendFile('data/users.json', JSON.stringify(userToCreate) + "\n");
-    await fs.writeFile(`data/users/user_${userToCreate.id}.json`, JSON.stringify(userToCreate))
+    await fs.appendFile(Constants.DataUsersPath, JSON.stringify(userToCreate) + "\n");
+    await fs.writeFile(`${Constants.DataUserPath}/user_${userToCreate.id}.json`, JSON.stringify(userToCreate))
   } catch (err) {
     console.log(err);
   }
