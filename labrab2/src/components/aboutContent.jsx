@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Typography, Container, Paper, Grid } from "@mui/material";
+import { Box, Typography, Container, Paper, Accordion, AccordionSummary, AccordionDetails, List, ListItem, ListItemText, Chip } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const AboutPage = () => {
   return (
@@ -9,56 +10,60 @@ const AboutPage = () => {
           <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
             About Our Store
           </Typography>
-          <Box sx={contentStyle}>
-            <Typography>
-              Welcome to <strong>Our Store</strong>, where quality meets affordability! Founded in 2010, we have 
-              grown to be a trusted name in the retail industry, offering a diverse range of products, from stylish 
-              clothing to cutting-edge electronics. Our mission is to provide you with an enjoyable shopping experience 
-              that keeps you coming back for more.
-            </Typography>
-          </Box>
+          <Typography>
+            Welcome to <strong>Our Store</strong>, where quality meets affordability! Founded in 2010, we have 
+            grown to be a trusted name in the retail industry, offering a diverse range of products, from stylish 
+            clothing to cutting-edge electronics. Our mission is to provide you with an enjoyable shopping experience 
+            that keeps you coming back for more.
+          </Typography>
         </Paper>
 
         <Paper elevation={3} sx={sectionStyle}>
           <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
             Our Mission
           </Typography>
-          <Box sx={contentStyle}>
-            <Typography>
-              Our mission is simple: to bring you the best products at the best prices, coupled with 
-              exceptional customer service. We continuously strive to enhance our offerings, ensuring that you find 
-              exactly what you're looking for every time you visit us.
-            </Typography>
-          </Box>
+          <Typography>
+            Our mission is simple: to bring you the best products at the best prices, coupled with 
+            exceptional customer service. We continuously strive to enhance our offerings, ensuring that you find 
+            exactly what you're looking for every time you visit us.
+          </Typography>
         </Paper>
 
         <Paper elevation={3} sx={sectionStyle}>
           <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
             Meet Our Team
           </Typography>
-          <Box sx={contentStyle}>
-            <Typography>
-              Our dedicated team is at the heart of everything we do. From customer service to product selection, 
-              each member plays a vital role in ensuring that you have a fantastic experience. 
-              <strong> We’re here to help!</strong>
-            </Typography>
-          </Box>
+          <List>
+            {teamMembers.map(member => (
+              <ListItem key={member.name}>
+                <ListItemText
+                  primary={member.name}
+                  secondary={member.role}
+                />
+                <Chip label={member.expertise} color="primary" />
+              </ListItem>
+            ))}
+          </List>
         </Paper>
 
         <Paper elevation={3} sx={sectionStyle}>
           <Typography variant="h2" sx={{ ...headingStyle, fontSize: '24px' }}>
-            What Our Customers Say
-          </Typography>    
-          <Box sx={contentStyle}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <Typography component="blockquote" sx={blockquoteStyle}>
-                  "Shopping at Our Store has been a fantastic experience! The variety of products is incredible, and I always find what I need."
-                  <cite>— Sarah J.</cite>
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
+            Customer Feedback
+          </Typography>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography>What Our Customers Say</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <List>
+                {customerFeedback.map((feedback, index) => (
+                  <ListItem key={index}>
+                    <Typography>"{feedback.comment}" - <strong>{feedback.name}</strong></Typography>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
         </Paper>
       </Container>
     </Box>
@@ -95,16 +100,15 @@ const headingStyle = {
   marginBottom: "15px",
 };
 
-const contentStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: 2,
-};
+const teamMembers = [
+  { name: "Alice Johnson", role: "Customer Service Manager", expertise: "Customer Support" },
+  { name: "Mark Smith", role: "Product Selection Specialist", expertise: "Product Knowledge" },
+  { name: "Lisa Ray", role: "Marketing Coordinator", expertise: "Marketing Strategies" },
+];
 
-const blockquoteStyle = {
-  fontStyle: "italic",
-  borderLeft: "4px solid #007bff",
-  paddingLeft: "10px",
-  margin: "10px 0",
-  color: "#555",
-};
+const customerFeedback = [
+  { comment: "Shopping at Our Store has been a fantastic experience! The variety of products is incredible.", name: "Sarah J." },
+  { comment: "Great prices and friendly staff! I highly recommend it to everyone.", name: "John D." },
+  { comment: "I love the selection of electronics and the quick delivery options!", name: "Emily W." },
+];
+
