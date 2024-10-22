@@ -21,6 +21,7 @@ function ProfileForm({ profile, handleChange, handleSubmit }) {
             type={key === "age" ? "number" : "text"}
             value={profile[key]}
             onChange={handleChange}
+            inputProps={key === "age" ? { min: 0 } : {}}
           />
         </FormControl>
       ))}
