@@ -20,8 +20,21 @@ function ProfileDetails({ profile }) {
     title: {
       textAlign: 'center',
       color: '#007bff',
-    }
+    },
   };
+
+  const profileFields = [
+    { label: 'First Name', value: profile.firstName },
+    { label: 'Last Name', value: profile.lastName },
+    { label: 'Nickname', value: profile.nickname },
+    { label: 'Description', value: profile.description },
+    { label: 'City', value: profile.city },
+    { label: 'Age', value: profile.age },
+    { label: 'Favourite meal', value: profile.meal },
+    { label: 'Occupation', value: profile.occupation },
+    { label: 'Hobbies', value: profile.hobbies },
+    { label: 'Relationship Status', value: profile.relationshipStatus },
+  ];
 
   return (
     <Box sx={styles.container}>
@@ -29,36 +42,11 @@ function ProfileDetails({ profile }) {
         Profile Page
       </Typography>
       <Box sx={styles.profileInfo}>
-        <Typography>
-          <strong>First Name:</strong> {profile.firstName}
-        </Typography>
-        <Typography>
-          <strong>Last Name:</strong> {profile.lastName}
-        </Typography>
-        <Typography>
-          <strong>Nickname:</strong> {profile.nickname}
-        </Typography>
-        <Typography>
-          <strong>Description:</strong> {profile.description}
-        </Typography>
-        <Typography>
-          <strong>City:</strong> {profile.city}
-        </Typography>
-        <Typography>
-          <strong>Age:</strong> {profile.age}
-        </Typography>
-        <Typography>
-          <strong>Favourite meal:</strong> {profile.meal}
-        </Typography>
-        <Typography>
-          <strong>Occupation:</strong> {profile.occupation}
-        </Typography>
-        <Typography>
-          <strong>Hobbies:</strong> {profile.hobbies}
-        </Typography>
-        <Typography>
-          <strong>Relationship Status:</strong> {profile.relationshipStatus}
-        </Typography>
+        {profileFields.map(({ label, value }) => (
+          <Typography key={label}>
+            <strong>{label}:</strong> {value}
+          </Typography>
+        ))}
       </Box>
     </Box>
   );
