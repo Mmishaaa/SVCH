@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import { Button, Box } from "@mui/material";
+import { Button, Box, Card, CardContent, Typography, TextField } from "@mui/material";
 
-function Card({ item, onDelete }) {
+function ItemCard({ item, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedItem, setEditedItem] = useState({ ...item });
 
@@ -23,10 +23,16 @@ function Card({ item, onDelete }) {
     <>
       <Popup
         trigger={
-          <Box sx={cardStyle}>
-            <h3>{editedItem.name}</h3>
-            <p>{editedItem.description}</p>
-          </Box>
+          <Card sx={cardStyle}>
+            <CardContent>
+              <Typography variant="h5" component="div">
+                {editedItem.name}
+              </Typography>
+              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                {editedItem.description}
+              </Typography>
+            </CardContent>
+          </Card>
         }
         modal
         nested
@@ -38,31 +44,42 @@ function Card({ item, onDelete }) {
           <Box sx={popupStyle}>
             {!isEditing ? (
               <>
-                <h2>{editedItem.name}</h2>
-                <p>{editedItem.description}</p>
-                <p>Full description:</p>
-                <p>{editedItem.fullDescription}</p>
+                <Typography variant="h4">{editedItem.name}</Typography>
+                <Typography>{editedItem.description}</Typography>
+                <Typography>Full description:</Typography>
+                <Typography>{editedItem.fullDescription}</Typography>
               </>
             ) : (
               <Box>
-                <input
-                  type="text"
+                <TextField
+                  label="Name"
+                  variant="outlined"
                   name="name"
                   value={editedItem.name}
                   onChange={handleEditChange}
-                  style={inputStyle}
+                  fullWidth
+                  sx={{ marginBottom: "10px" }}
                 />
-                <textarea
+                <TextField
+                  label="Description"
+                  variant="outlined"
                   name="description"
                   value={editedItem.description}
                   onChange={handleEditChange}
-                  style={textareaStyle}
+                  fullWidth
+                  multiline
+                  rows={3}
+                  sx={{ marginBottom: "10px" }}
                 />
-                <textarea
+                <TextField
+                  label="Full Description"
+                  variant="outlined"
                   name="fullDescription"
                   value={editedItem.fullDescription}
                   onChange={handleEditChange}
-                  style={textareaStyle}
+                  fullWidth
+                  multiline
+                  rows={3}
                 />
               </Box>
             )}
@@ -125,17 +142,11 @@ function Card({ item, onDelete }) {
   );
 }
 
-export default Card;
+export default ItemCard;
 
 const cardStyle = {
-  border: "1px solid #ccc",
-  borderRadius: "8px",
-  padding: "10px",
-  margin: "10px",
-  textAlign: "center",
   width: "200px",
-  position: "relative",
-  boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+  margin: "10px",
   cursor: "pointer",
 };
 
@@ -158,22 +169,6 @@ const popupContentStyle = {
 
 const overlayStyle = {
   backgroundColor: "rgba(0, 0, 0, 0.5)",
-};
-
-const inputStyle = {
-  width: "100%",
-  padding: "10px",
-  marginBottom: "10px",
-  borderRadius: "5px",
-  border: "1px solid #ccc",
-};
-
-const textareaStyle = {
-  width: "100%",
-  padding: "10px",
-  marginBottom: "10px",
-  borderRadius: "5px",
-  border: "1px solid #ccc",
 };
 
 const muiButtonStyle = {
